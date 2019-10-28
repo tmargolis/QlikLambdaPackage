@@ -42,8 +42,8 @@ const Promise = require('bluebird');
 const qsocks = require('qsocks');
 
 io.on('connection', function(socket){
-  console.log('got a connection')
-  var appname;
+    console.log('got a connection')
+    var appname;
 
 	socket.emit('syncEventArray', eventArray);
 
@@ -52,9 +52,9 @@ io.on('connection', function(socket){
 		socket.emit('generateDataYN', generateFg);
 	});
   
-    socket.on('unity', function(data) {
-        console.log("received msg from Unity");
-    })
+	socket.on('unity', function(data) {
+    	console.log("received msg from Unity");
+	})
 
 	socket.on('sensoremit', function(data, callback) {
 		socket.broadcast.emit('bounceemit',data);
@@ -62,11 +62,12 @@ io.on('connection', function(socket){
 		childParentApps.push({'parentApp':'LambdaWindow2.qvf', 'childApps':[]})
 		//childParentApps[0].parentApp = 'realtimeParent.qvf';
 		var cleanAppToReload=encodeURIComponent(data.appToLoad.trim());
-        childParentApps[0].childApps.push(cleanAppToReload);
+        	childParentApps[0].childApps.push(cleanAppToReload);
 		//console.log(data)
-	    sensordata=data;
-	    lastAggReadId_preload=lastAggReadId_preload+1;
-	    //console.log('last read parent: '+lastAggReadId_preload)
+	    	sensordata=data;
+	    	lastAggReadId_preload=lastAggReadId_preload+1;
+	    	//console.log('last read parent: '+lastAggReadId_preload)
+		console.log(data);
 
 	    if (autoQueue === 1) {
 	      
